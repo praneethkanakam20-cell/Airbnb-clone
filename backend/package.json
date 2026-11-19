@@ -1,6 +1,16 @@
 {
   "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
     "express": "^5.3.0",
+    "mongoose": "^9.12.2",
     "node": "^27.0.0-alpha.0.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  },
+  "scripts" : {
+    "start": "node codes/server.js",
+    "dev" : "nodemon codes/server.js"
   }
 }
