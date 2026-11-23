@@ -1,14 +1,14 @@
-const express = require("express");
+const express=require("express");
 require("dotenv").config({path : "../.env"});
-const cors = require("cors");
 const mongodb = require("./mongodbcrt/db");
+const cors = require("cors");
 const app = express();
-app.use(cors())
-app.use(express.json())
-const dbstart = async ()=>{
+app.use(express.json());
+app.use(cors());
+async function mongoconnect() {
     await mongodb();
-};
-dbstart();
+}
+mongoconnect();
 app.listen(3000,()=>{
-    console.log(`Server is running on the post ${3000}...`)
+    console.log(`server is running on the port ${3000}..`);
 });
