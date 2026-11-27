@@ -4,7 +4,7 @@ const Listing = require("../models/listing");
 async function createonelist(req,res){
     const listing = req.body;
     if (!listing){
-        res.status(400).json({
+        return res.status(400).json({
             message : "request cannot be empty"
         });
     }
@@ -25,7 +25,7 @@ async function createonelist(req,res){
 async function getalllist(req,res) {
     const alllists = await Listing.find();
     if (!alllists){
-        res.status(404).json({
+        return res.status(404).json({
             message : "Listings were not found"
         });
     }
@@ -45,14 +45,14 @@ async function getalllist(req,res) {
 async function getsinglelist(req,res){
     const listid = req.params.id;
     if (!listid){
-        res.status(400).json({
+        return res.status(400).json({
             message : "request cannot be empty"
         });
     }
     try {
         const singlelist = await Listing.findById(listid);
         if (!singlelist){
-            res.status(404).json({
+            return res.status(404).json({
                 message : "list was not found"
             })
         }
@@ -75,7 +75,7 @@ async function updatelist(req,res){
             runValidators : true
         });
         if (!newlist){
-            res.status(400).json({
+            return res.status(400).json({
                 message : "The list was not found"
             });
         }
@@ -95,7 +95,7 @@ async function deletelist(req,res) {
     try{
         const list = await Listing.findByIdAndDelete(req.params.id);
         if (!list){
-            res.status(400).json({
+            return res.status(400).json({
                 message : "list was not found"
             });
         }

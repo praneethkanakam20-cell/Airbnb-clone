@@ -13,7 +13,7 @@ const Userschema = mongoose.Schema({
         type : String ,
         required : true
     },
-    roll : {
+    role : {
         type: String,
         enum : ["guest","host"],
         default : "guest"
