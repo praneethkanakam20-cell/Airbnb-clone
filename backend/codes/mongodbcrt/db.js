@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
-const a = process.env.MONGO_URI;
-async function dbconnect(){
+async function mongocrt(){
     try{
-        await mongoose.connect(a);
-        console.log("Database is connected");
+        await mongoose.connect(process.env.MONGO_URI);
+        console.log("Databaase is connected Successfully");
     }catch(error){
-        console.log("Error in the connection of mongodb");
-    };
-};
-module.exports=dbconnect;
+        console.log("Database connection failed");
+        console.log(error);
+    }
+}
+module.exports=mongocrt;
